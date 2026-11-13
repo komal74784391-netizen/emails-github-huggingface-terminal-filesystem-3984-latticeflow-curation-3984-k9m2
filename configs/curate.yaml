@@ -1,0 +1,22 @@
+# Configuration for the LatticeFlow curation runs.
+parameters:
+  - name: target_size
+    type: int
+    default: 250000
+    description: Number of documents retained by the solver.
+  - name: thresholds
+    type: List[Union[int, float]]
+    default: [0.5, 0.8]
+    description: Constraint thresholds applied during filtering.
+  - name: filter_config
+    type: Dict[str, List[int]]
+    default: {}
+    description: Per-source exclusion rules keyed by source name.
+  - name: allowed_sources
+    type: List
+    default: ["cc-news", "wikipedia"]
+    description: Sources eligible for the curated corpus.
+  - name: dedupe_keys
+    type: set
+    default: ["url", "content_hash"]
+    description: Fields used to detect near-duplicate documents.
